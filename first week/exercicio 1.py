@@ -1,6 +1,6 @@
 import random
 import turtle as t
-from unittest import result
+
 
 t.pensize(2)
 t.speed(1)
