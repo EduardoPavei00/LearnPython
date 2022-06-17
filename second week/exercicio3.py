@@ -8,10 +8,9 @@ def number(y):
 
 
 def verification():
-    for i in range(1000000000):
+    for i in range(1000000):
         number(i)
-
-print("fim")
+    print("fim")
 
 
 verification()

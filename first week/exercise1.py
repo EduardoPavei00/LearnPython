@@ -14,6 +14,7 @@ def variaçao():
 
 def bolsa():
     y = random.randint(-200, 200)
+
     x = 0
     z = 0
 
