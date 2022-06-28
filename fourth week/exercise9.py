@@ -4,7 +4,6 @@
 
 def inverte_list(number_list):
     i = 0
-    h = 0
     tamanho_string = len(number_list)
     while i < tamanho_string:
         number_list.append(tamanho_string - i)
@@ -14,5 +13,5 @@ def inverte_list(number_list):
     return number_list
 
 
-lista = [1, 2, 3]
+lista = list(range(10))
 print(inverte_list(lista))
