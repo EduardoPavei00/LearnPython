@@ -27,6 +27,7 @@ class PaddleGame():
         self.sc.onkeypress(self.paddle.paddle_right, "Right")
         self.sc.onkeypress(self.paddle.paddle_left, "Left")
 
+
     def detect_ball_in_border(self):
         if self.ball.x() > (self.border.size/2) or self.ball.x() < (-self.border.size/2):
             self.ball.dx *= -1
@@ -38,6 +39,7 @@ class PaddleGame():
             self.ball.reset()
             self.ball.dy *= -1
             self.lives -= 1
+
 
     def detect_ball_in_paddle(self):
         pad_x_min = self.paddle.x() - (self.paddle.width/2)

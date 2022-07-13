@@ -2,6 +2,7 @@ import turtle as t
 from turtle import TurtleScreen
 from enum import Enum
 
+
 # === Definições utilizadas ===
 
 
@@ -20,6 +21,20 @@ class ScreenBorder:
         for side in range(4):
             self.__pen.forward(self.size)
             self.__pen.left(90)
+
+        self.__pen.hideturtle()
+
+
+class Lives:
+
+    def __init__(self):
+        self.lives = 3
+        self.__pen = t.Turtle()
+        self.__pen.speed(0)
+        self.__pen.penup()
+        self.__pen.goto(0, 240)
+        self.__pen.pendown()
+        self.__pen.write("Lives : {} ".format(self.lives), align="center", font=("Courier", 24, "normal"))
         self.__pen.hideturtle()
 
 
@@ -36,14 +51,14 @@ class Paddle:
     height: int = 10
 
     def __init__(self, start_x, start_y, min_x, max_x):
-        self.__min_x = min_x + self.width/2
-        self.__max_x = max_x - self.width/2
+        self.__min_x = min_x + self.width / 2
+        self.__max_x = max_x - self.width / 2
 
         self.__pen = t.Turtle()
         self.__pen.speed(0)
         self.__pen.shape("square")
         self.__pen.color("black")
-        self.__pen.shapesize(stretch_wid=self.height/10, stretch_len=self.width/10)
+        self.__pen.shapesize(stretch_wid=self.height / 10, stretch_len=self.width / 10)
         self.__pen.penup()
         self.__pen.goto(start_x, start_y)
 
@@ -63,10 +78,10 @@ class Paddle:
             self.__pen.setx(self.__pen.xcor() - positions)
 
         self.__pen.setx(self.__pen.xcor() + positions)
-        if self.__pen.xcor()-20 < self.__min_x:
+        if self.__pen.xcor() - 20 < self.__min_x:
             print(self.__min_x)
             undo()
-        if self.__pen.xcor()+20 > self.__max_x:
+        if self.__pen.xcor() + 20 > self.__max_x:
             undo()
 
     def paddle_right(self):
@@ -104,9 +119,4 @@ class Ball:
         self.__pen.sety(self.__pen.ycor() + self.dy)
 
     def reset(self):
-        return self.__pen.goto(0,0)
-
-
-
-
-
+        return self.__pen.goto(0, 0)
